@@ -24,11 +24,11 @@ If you are specifically interested to database for biologging data, the project 
 ## <a name="connectionparameters"></a> Connection parameters  
 The database can be accessed using the following parameters:
 
-  IP or Domain name of the server: eurodeer2.fmach.it
-  Server Port: 5432
-  Name of the Database: bear_db
-  User Name: ...
-  Password: ...
+	  IP or Domain name of the server: eurodeer2.fmach.it
+	  Server Port: 5432
+	  Name of the Database: bear_db
+	  User Name: ...
+	  Password: ...
 
 
 If you don't have a user account (and you are entitle to have you) please contact Francesca Cagnacci or Luca Pedrotti or Ferdinando Urbano.
