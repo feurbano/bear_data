@@ -216,21 +216,20 @@ All these tools are open source, standard compliant, efective and well documente
 ### phppgAdmin
 The data in the database can be accessed, explored, queried and downloaded (as csv) using a web based tool available at [http://eurodeer2.fmach.it/phppgadmin/](http://eurodeer2.fmach.it/phppgadmin/). There is no need to install any software on the local computer. The interface is very intuitive and similar to PgAdmin, with a structure pretty similar to a file system exporer. This is the recommended interface for basic users. It is not possible to visualize spatial data. For an example, see the figure below.
 
-FIGURE
+![](https://github.com/feurbano/bear_data/blob/master/phppgadmin.png)
 
 ### PgAdmin
 [PgAdmin](https://www.pgadmin.org/) is the most popular and feature rich Open Source administration and development platform for PostgreSQL. There are two versions: 3 and 4 (the former is more intuitive, the latter more modern and powerful). This is the best tool to manage the data and explore both structure and content, including the formulation of advanced queries and the creation of new database objects.
 Here below and example of the window with the connection parameters.
 
-FIGURE
+![](https://github.com/feurbano/bear_data/blob/master/pgadmin.png)
 
 ### QGIS
 [QGIS](www.qgis.org) is a desktop GIS that is very well integrated with PostgreSQL and PostGIS and offers a large set of tools to deal with spatial data in the database. Connecting to the database is pretty simple and weel documented, for example [here](http://docs.qgis.org/2.18/en/docs/training_manual/databases/index.html). Data can be accessed in three steps: create a connection to the db. Open the connection. Get the data. Here below is reported as an example a screenshot of the connection window in QGIS.
 
-figure
-figure
+![](https://github.com/feurbano/bear_data/blob/master/qgis1.png)
 
-![](https://i.imgur.com/u8ld0ky.png)
+![](https://github.com/feurbano/bear_data/blob/master/qgis2.png)
 
 ### R
 You can easily import data from the database into [R](https://www.r-project.org/) using a code like the one reported below:
