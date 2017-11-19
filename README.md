@@ -1,6 +1,6 @@
 # Bear data repository of Provincia di Trento
 ### Documentation of the shared database
-Last update: 17 Dec 2017
+Last update: 18 Nov 2017
  
 ## Content  
 
