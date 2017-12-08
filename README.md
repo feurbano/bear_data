@@ -49,8 +49,6 @@ The two data sets also include additional information about the animals (for mor
 
 *To be extended [...]*
 
-**At the moment only tracking (and related) data have been uploaded. Genetic data and information about cubs are being processed and are expected to be available by November 30th.**
-
 ## <a name="datastructure"></a> Data structure  
 A database contains one or more named [schemas](https://www.postgresql.org/docs/current/static/ddl-schemas.html), which in turn contain tables. Schemas also contain other kinds of named objects, including data types, functions, and operators.  
 Schema are used to organize database objects into logical groups, to make them more manageable, and to allow many users to use one database without interfering with each other. Schema are similar to folders in a file system.
@@ -76,13 +74,13 @@ Fields:
 * *animals_id*:  Database id of the animal.	
 * *research\_groups_id*:  Research group that monitors the animal.	
 * *animals\_original_id*:  Identifier of the animal in the original data set.	
-* *animals\_original_name*:  Nome of the animal in the original data set.	
-* *sex*:  Code for sex. It can be either "f" (female) or "m" (male). When the sex is not known, the field can be empty.	
+* *animals\_code*:  Name (code) of the animal in the original data set.	
+* *sex_code*:  Code for sex. It can be either "f" (female) or "m" (male). When the sex is not known, the field can be empty.	
 * *notes*:  Open field where general notes on the animal can be added.	
 * *year\_birth*:  Year of birth (when known). In the year\_birth_exact field it is described if this is the exact year of birth of just an estimation (minimum year of birth).
-* *year_birth_exact*:  Flag (yes/no) that specifies if the year of birth is exact (yes) or just an estimation (no) (e.g. when I know that the animal is at least 4 years old but I do not know the exact age.	
-* *animals_original\_name_father*:  Nome of the father of the animal in the original data set.	
-* *animals_original\_name_mother*:  Nome of the mother of the animal in the original data set.	
+* *year_birth\_exact*:  Flag (yes/no) that specifies if the year of birth is exact (yes) or just an estimation (no) (e.g. when I know that the animal is at least 4 years old but I do not know the exact age.	
+* *animals_code\_father*:  Nome of the father of the animal in the original data set.	
+* *animals_code\_mother*:  Nome of the mother of the animal in the original data set.	
 * *animal_id_father*:  Database id of the father of the animal.	
 * *animal_id_mother*:  Database id of the mother of the animal.	
 * *fate\_code*:  Fate of the animal, value connected to the lookup table lu_fate.	
@@ -91,23 +89,6 @@ Fields:
 * *insert_timestamp*:  Date and time when the record was uploaded into the database.	
 * *update_timestamp*:  Date and time when the record was updated (last time).
 
-#### Table animals_captures 
-Table with the information on captures. This table might have to be modified when data on genetics will be included.
-
-Fields:
-
-* *animals_captures_id*: Database ID of the capture of an animal. Each animal can have multiple captures.	
-* *animals_id*: Database ID of the animal (external key to the table main.animals).	
-* *capture_timestamp*: Time and date (with time zone) when the animal was captured (animal fall in the trap, box, net, etc.).	
-* *release_timestamp*: Time and date (with time zone) when the animal was released (animal taken out from the box, trap, net etc. or put back into a transportation box).	
-* *handling_start*: Time and date (with time zone) when the animal handling started (taken out from the box, trap, net etc. and is in direct contact with people).	
-* *handling_end*: Time and date (with time zone) when the animal handling ended (animals is no more in direct contact with people for marking and measurements or it is released or put back in to a transportation box).	
-* *longitude_captures*: Coordinate of the capture (can be an approximation).	
-* *latitude_captures*: Coordinate of the capture (can be an approximation).	
-* *geom_capture*: Location (point) of the capture (can be an approximation).	
-* *gps_sensors_animals_id*: In case the animal has been collared with GPS, this is the id of the related deployment.	
-* *notes*: General notes on the capture.
-
 #### Table: gps\_data_animals
 Table with GPS locations associated to animals and with a list of derived ancillary information calculated using the coordinates and the acquisition time, and intersecting with environmental layers.	
 
@@ -115,6 +96,7 @@ Fields:
 
 * *gps_data_animals_id*: DB identifier for the location	
 * *animals_id*: DB identifier for the animal	
+* *animals\_code*:  Name (code) of the animal in the original data set.	
 * *gps_sensors_id*: DB identifier for the GPS sensor	
 * *acquisition_time*: Date and time of acquisition of the GPS coordinates (with time zone)	
 * *geom*: Geometry of the location (point, 4326)	
@@ -141,7 +123,6 @@ Fields:
 * *insert_timestamp*: Date and time when the record was uploaded into the database.	
 * *update_timestamp*: Date and time when the record was updated (last time).
 
-
 #### Table gps_sensors
 Catalogue of GPS sensors. Each sensor belongs to a research group. The attributes include the brand and the model. The id used in the original data set is also included.	
 
@@ -161,6 +142,7 @@ Fields:
 
 * *gps\_sensors\_animals_id*: DB identifier of the deployment.
 * *gps\_sensors_id*: DB identifier of the GPS sensor.
+* *animals\_code*:  Name (code) of the animal in the original data set.	
 * *animals_id*: DB identifier of the animal.
 * *start_time*: Time and date of the start of the deployment.
 * *end_time*: Time and date of the end of the deployment.
@@ -188,12 +170,26 @@ Fields:
 * *year_joined*: Year when the group joined the project.
 * *insert_timestamp*: Date and time when the record was uploaded into the database.
 
+
+#### Table research_groups
+Research groups that joined the project. At the moment, only Provincia di Trento is in.
+
+
+#### Table main.identifications
+*Work in progress*
+
+#### Table main.cubs_unrecocgnized
+*Work in progress*
+
 #### VIEWS
 A view is the result set of a stored query on the data, which the database users can query just as they would in a persistent database collection object. This pre-established query command is kept in the database dictionary. Unlike ordinary base tables in a relational database, a view does not form part of the physical schema: as a result set, it is a virtual table computed or collated dynamically from data in the database when access to that view is requested. Changes applied to the data in a relevant underlying table are reflected in the data shown in subsequent invocations of the view.
 
 * *view\_bear\_gps\_positions*: View with the valid locations with name of the animal and reference research group.
 * *view_convexhull*: View with the convex hull of all valid locations for each animal.	
 * *view_trajectories*: View with the trajectory as linear spatial feature for each animal.
+* *view_cubs*: View with the list of cubs (including those not identified) for each female/year.
+* *view_cubs*: View with the list of cubs (including those not identified) for each female/year with one column per cub.
+
 
 ### SCHEMA ENV_DATA
 
