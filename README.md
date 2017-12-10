@@ -175,9 +175,44 @@ Fields:
 * *insert_timestamp*: Date and time when the record was uploaded into the database.
 
 #### Table main.identifications
-*Work in progress*
+Tables that stores all the identifications of bears particularly from genetics, but also derived from damages, radio tracking, sighting, tracks. 
 
 Fields:
+
+* Table **identifications_id**: DB identifier of the identification record.
+* Table **date_identification**: Date of sample collection or of the observation.
+* Table **year_identification**: Year of sample collection or of the observation.
+* Table **identification_type_code**: Refer to the kind of sample used for bear identifications.
+* Table **sample_impact_code**: Refer to the nature of genetic sample.
+* Table **sample_method_code**: Refer to the sampling strategy.
+* Table **sample_type_code**: Refer to the type of organic sample used for genetic analysis.
+* Table **hair_number_code**: Number of collected hairs (< or > 5).
+* Table **sex_code**: Sex of the identified bear.
+* Table **genotype_code**: If the sample is determined as bear.
+* Table **genotype_identification_code**: Refer to the kind of identification (individual, mixed, undefined).
+* Table **genotype_animal_code**: The code of the identified bear
+* Table **genotype_animal_confirmed**: If the identification of the individual is confirmed or just supposed.
+* Table **scalp_code**: The code of reliability of sample, according to SCALP methodology.
+* Table **geom**: Spatial object (point) where the sampling/observation occurred.
+* Table **municipality**: Territorial entity in which the sample has been collected (derived from coordinates reported).
+* Table **istat_cod_com**: ISTAT code for italian municipality.
+* Table **note_municipality**: Name of the municipality as reported in the original data source.
+* Table **place**: Place name where the sample has been collected
+* Table **province**: Name of the province as reported in the original data source.
+* Table **region**: Name of the region as reported in the original data source.
+* Table **state**: Name of the country as reported in the original data source.
+* Table **notes_field**: Notes concerning the collection of samples
+* Table **data_origin**: The public administration / agency that stored the sample into its own database (not coded).
+* Table **collector**: People who collected the sample.
+* Table **authority**: The public administration / agency people who own the collected sample.
+* Table **ispra_id**: ID of sample genetically analysed by Italian Institute for Conservation and Research on Nature (ISPRA).
+* Table **old_field_id**: Sample ID used during field collection.
+* Table **field_id**: Sample ID used during field collection.
+* Table **del_utm32_e**: Deprecated field (to be removed).
+* Table **del_utm32_n**: Deprecated field (to be removed).
+* Table **del_field_notes**: Deprecated field (to be removed).
+* Table **del_field_notes2**: Deprecated field (to be removed).
+* Table **del_pat_id**: Deprecated field (to be removed).
 
 #### Table main.cubs_unrecognized
 Table with the information on the cubs that have been seen with their mother but that were never recognized with genetics (only year and mother are known).
