@@ -1,6 +1,6 @@
 # Bear data repository of Provincia di Trento
 ### Documentation of the shared database
-Last update: 18 Nov 2017
+Last update: 10 Dec 2017
  
 ## Content  
 
@@ -61,6 +61,10 @@ The schema in the bear_db at the moment are:
 * **tools**: This schema hosts all the functions and tools that are used throughout the database to manage, massage, analyse and query data.
 * **data_trentino**: This schema is used to store the original data provided by Trentino (Italy)	and is accessible by users from this research group only.
 * **public**: Standard public schema used by the system. No information on bears is stored here.
+
+Here below, the figure represents the structure of the database objects (tables). All tables with suffix *lu_* are use to tore the set of valid values for specific fields.
+
+![](https://github.com/feurbano/bear_data/blob/master/db_model1.png)
 
 In the next section, a detailed description of all the tables and views in *main* schema and a general review of tables in the other schemas are reported.  
 
@@ -156,7 +160,7 @@ Fields:
 * *notes*: Open field where general notes on the deployment can be added.
 
 #### Table research_groups
-Research groups that joined the project. At the moment, only Provincia di Trento is in.
+Research groups that joined the project.
 
 Fields:
 
@@ -170,16 +174,20 @@ Fields:
 * *year_joined*: Year when the group joined the project.
 * *insert_timestamp*: Date and time when the record was uploaded into the database.
 
-
-#### Table research_groups
-Research groups that joined the project. At the moment, only Provincia di Trento is in.
-
-
 #### Table main.identifications
 *Work in progress*
 
-#### Table main.cubs_unrecocgnized
-*Work in progress*
+Fields:
+
+#### Table main.cubs_unrecognized
+Table with the information on the cubs that have been seen with their mother but that were never recognized with genetics (only year and mother are known).
+
+Fields:
+
+* *cubs_unrecognized_id*: Database id of the unrecognized cub.
+* *animals_code_mother*: Animal code of the mother of the cub.
+* *year*: Year when the cub was seen with her mother.
+* *cub_id*: Id of the cub in case more than one cub is seen with a mother in a year.
 
 #### VIEWS
 A view is the result set of a stored query on the data, which the database users can query just as they would in a persistent database collection object. This pre-established query command is kept in the database dictionary. Unlike ordinary base tables in a relational database, a view does not form part of the physical schema: as a result set, it is a virtual table computed or collated dynamically from data in the database when access to that view is requested. Changes applied to the data in a relevant underlying table are reflected in the data shown in subsequent invocations of the view.
@@ -199,10 +207,20 @@ A view is the result set of a stored query on the data, which the database users
 
 ### SCHEMA LU_TABLES
 
-* Table **lu\_end_deployment**: Look up table for end\_deployment_code field: it specifies the meaning of the code used to identify the reasons of the end of deployment.	
-* Table **lu_fate**: Look up table for fate_code field (table main.animals): it specifies the meaning of the code used to identify the fate of the animal.	
-* Table **lu\_gps_validity**: Look up table for GPS locations validity.	
-* Table **lu_problematic**: Look up table for problematic_code field: it specifies the meaning of the code used to identify the problematic behaviuor of the animal.
+* Table **lu_end_deployment**: Look up table for end_deployment_code field: it specifies the meaning of the code used to identify the reasons of the end of deployment.
+* Table **lu_fate**: Look up table for fate_code field (table main.animals_contacts): it specifies the meaning of the code used to identify the fate of the animal.
+* Table **lu_genotype**: Look up table for the genotype (if it is confirmed that the animal is a bear).
+* Table **lu_genotype_identification**: Look up table for the genotype identification of the animal (mixed, individual, undefined).
+* Table **lu_gps_validity**: Look up table for GPS locations validity.
+* Table **lu_hair_number**: Look up table for (the class of) number of hairs taken in a sample (used in the table identifications).
+* Table **lu_identification_type**: Look up table for type of identification (used in the table identifications): it specifies the meaning of the code used to identify the animal (e.g. genetic, sighting, etc).
+* Table **lu_origin**: Look up table for origin_code field: it specifies the meaning of the code used to identify the origin of the animal (immigrated, reintroduced, wild born).
+* Table **lu_problematic**: Look up table for problematic_code field: it specifies the meaning of the code used to identify the problematic behaviour of the animal. It can change over time.
+* Table **lu_sample_impact**: Look up table for the impact of the sample on the animal (invasive or non invasive).
+* Table **lu_sample_method**: Look up table for the method of the sample (e.g. Opportunistic, Systematic, Tree).
+* Table **lu_sample_type**: Look up table for type of sample taken (used in the table identifications).
+* Table **lu_scalp**: Look up table for type of sample taken (used in the table identifications).
+* Table **lu_sex**: Look up table for the sex of the animal.
 
 ## <a name="clienttools"></a> Client tools
 While data are (safely and consistently) stored in the database, users can use client applications to access the data. Data are not duplicated but a single, controlled version is available to all users. According to the task that must be performed (including a plain export to .csv for they who are allergic to databases), users can use one of the many clients available. For tabual data visualization, query, download, the recommended tools are PgAdmin (3 or 4) or PhpPgAdmin. For visualization and processing of spatial data, QGIS is the best client. For statistical analysis, R is the most used tool. LibreOffice offers a complete suite of products to interact with the database.  
