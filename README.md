@@ -227,11 +227,13 @@ Fields:
 #### VIEWS
 A view is the result set of a stored query on the data, which the database users can query just as they would in a persistent database collection object. This pre-established query command is kept in the database dictionary. Unlike ordinary base tables in a relational database, a view does not form part of the physical schema: as a result set, it is a virtual table computed or collated dynamically from data in the database when access to that view is requested. Changes applied to the data in a relevant underlying table are reflected in the data shown in subsequent invocations of the view.
 
-* *view\_bear\_gps\_positions*: View with the valid locations with name of the animal and reference research group.
-* *view_convexhull*: View with the convex hull of all valid locations for each animal.	
-* *view_trajectories*: View with the trajectory as linear spatial feature for each animal.
-* *view_cubs*: View with the list of cubs (including those not identified) for each female/year.
-* *view_cubs*: View with the list of cubs (including those not identified) for each female/year with one column per cub.
+*view\_animals\_decoded*: In formation from the table animals where all the coded values are reported along with their description.
+*view\_animals\_genetics*: View that joins all the inforation from the tables animals, animals_parents, animals_genotypes and where all the coded values are reported with their description.
+*view\_bear\_gps\_positions*: View that joins the locations of the animals with the information on individuals.
+*view_convexhull*: View with the convex hull of all valid locations per all the animals
+*view_cubs*: View with the list of cubs and father for each female/year (it joins known and unknown cubs). All cubs are in a single fields.
+*view\_cubs\_split*: View with the list of cubs and father for each female/year (it joins known and unknown cubs).Every cub in a different column (maximum 4 cubs per year/mother).
+*view_trajectories*: Complete trajectories as linear spatial features per each of the animals
 
 
 ### SCHEMA ENV_DATA
