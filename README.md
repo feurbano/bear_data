@@ -93,6 +93,12 @@ Fields:
 * *insert_timestamp*:  Date and time when the record was uploaded into the database.	
 * *update_timestamp*:  Date and time when the record was updated (last time).
 
+#### Table: animals_genotypes
+...
+
+#### Table: animals_parents
+...
+
 #### Table: gps\_data_animals
 Table with GPS locations associated to animals and with a list of derived ancillary information calculated using the coordinates and the acquisition time, and intersecting with environmental layers.	
 
