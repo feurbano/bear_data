@@ -1,6 +1,6 @@
 # Bear data repository of Provincia di Trento
 ### Documentation of the (shared) database
-Last update: 10 Dec 2017
+Last update: 31 Jan 2017
  
 ## Content  
 
@@ -351,7 +351,7 @@ You can easily import data from the database into [R](https://www.r-project.org/
 
 	library(RPostgreSQL)
 	drv <- dbDriver("PostgreSQL")
-	con <- dbConnect(drv, dbname="bear_db", host="eurodeer2.fmach.it", port="5434", user="YOURUSER", password="YOURPASSWORD")
+	con <- dbConnect(drv, dbname="bear_db", host="eurodeer2.fmach.it", port="5432", user="YOURUSER", password="YOURPASSWORD")
 	rs <- dbSendQuery(con, "select * from main.animals")
 	df <- fetch(rs,-1)
 	df[1:4,]
