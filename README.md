@@ -62,13 +62,18 @@ The schemas in the bear_db at the moment are:
 * **data_trentino**: This schema is used to store the original data provided by Trentino (Italy) and is accessible by users from this research group only.
 * **public**: Standard public schema used by the system. No information on bears is stored here.
 
-Here below, the figure represents the complete structure of the database objects (tables). All tables with suffix *lu_* are use to store the set of valid values for specific fields. In the picture, the tables are reported with the list of their columns, the primary and external keys and the links between tables.
-
-![](https://github.com/feurbano/bear_data/blob/master/beardb_complete.png)
-
-In the images below, two simplified version of the tables structure are illustrated.
-![](https://github.com/feurbano/bear_data/blob/master/beardb_schema.png)
-![](https://github.com/feurbano/bear_data/blob/master/beardb_core.png)
+Here below, the figure represents the complete structure of the database objects (tables). All tables with suffix *lu_* are use to store the set of valid values for specific fields. In the picture, the tables are reported with the list of their columns, the primary and external keys and the links between tables (click on it to enlarge the picture).
+<p align="center">
+  <img src="https://github.com/feurbano/bear_data/blob/master/beardb_complete.png" Height="350"/>	
+</p>
+In the images below, two simplified version of the tables structure are illustrated. The first one with all the tables.
+<p align="center">
+  <img src="https://github.com/feurbano/bear_data/blob/master/beardb_schema.png" Height="350"/>	
+</p>
+The second one with just core tables (no look up tables).
+<p align="center">
+  <img src="https://github.com/feurbano/bear_data/blob/master/beardb_core.png" Height="350"/>	
+</p>
 
 In the next section, a detailed description of all the tables and views in *main* schema and a general review of tables in the other schemas are reported.  
 
@@ -96,10 +101,64 @@ Fields:
 * *update_timestamp*:  Date and time when the record was updated (last time).
 
 #### Table: animals_genotypes
-...
+Table with info on genotypes. Relation 1 to 1 with table main.animals. (description of the table to be extended)
+
+Fields:
+
+* *animals_code*: identification code for each bear	
+* *cxx20_a*: Allele size of specified str lucus	
+* *cxx20_b*: Allele size of specified str lucus	
+* *g10m_a*: Allele size of specified str lucus	
+* *g10m_b*: Allele size of specified str lucus	
+* *g10p_a*: Allele size of specified str lucus	
+* *g10p_b*: Allele size of specified str lucus	
+* *g10x_a*: Allele size of specified str lucus	
+* *g10x_b*: Allele size of specified str lucus	
+* *g1d_a*: Allele size of specified str lucus	
+* *g1d_b*: Allele size of specified str lucus	
+* *mu11_a*: Allele size of specified str lucus	
+* *mu11_b*: Allele size of specified str lucus	
+* *mu15_a*: Allele size of specified str lucus	
+* *mu15_b*: Allele size of specified str lucus	
+* *mu23_a*: Allele size of specified str lucus	
+* *mu23_b*: Allele size of specified str lucus	
+* *mu50_a*: Allele size of specified str lucus	
+* *mu50_b*: Allele size of specified str lucus	
+* *mu59_a*: Allele size of specified str lucus	
+* *mu59_b*: Allele size of specified str lucus	
+* *g10c_a*: Allele size of specified str lucus	
+* *g10c_b*: Allele size of specified str lucus	
+* *g10h_a*: Allele size of specified str lucus	
+* *g10h_b*: Allele size of specified str lucus	
+* *g10l_a*: Allele size of specified str lucus	
+* *g10l_b*: Allele size of specified str lucus	
+* *mu09_a*: Allele size of specified str lucus	
+* *mu09_b*: Allele size of specified str lucus	
+* *mu10_a*: Allele size of specified str lucus	
+* *mu10_b*: Allele size of specified str lucus	
+* *sry_a*: Allele size of specified str lucus	
+* *sry_b*: Allele size of specified str lucus	
+* *notes_loci*: notes about str loci
 
 #### Table: animals_parents
-...
+Table with info on parents. Relation 1 to 1 with table main.animals. (description of the table to be extended)
+
+Fields:
+
+* *animals_code*: identification code for each bear
+* *paternity_reliability_code*: reliability for paternity assignment
+* *pedigree*: parents assignment
+* *pedigree_note*: notes on pedigree assignment
+* *software_used*: software used for pedigree analysis
+* *alternative_mother*: Alternative hypothesis of mother assignment
+* *alternative_father*: Alternative hypothesis of father assignment
+* *alternative_pedigree*: Alternative hypothesis of parents assignment
+* *alternative_pedrigree_note*: notes on alternative pedigree
+* *mismatch_number*: number of mismatch in analysed str loci
+* *allelic_dropout_number*: number of allelic dropout in analysed str loci
+* *mother_animals_code*: mother assignment
+* *father_animals_code*: father assignment
+* *notes_parents*: notes on parents
 
 #### Table: gps\_data_animals
 Table with GPS locations associated to animals and with a list of derived ancillary information calculated using the coordinates and the acquisition time, and intersecting with environmental layers.	
