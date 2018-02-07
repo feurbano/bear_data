@@ -280,8 +280,8 @@ Table with the information on the cubs that have been seen with their mother but
 
 Fields:
 
-* *cubs_unrecognized_id*: Database id of the unrecognized cub.
-* *animals_code_mother*: Animal code of the mother of the cub.
+* *cubs\_unrecognized_id*: Database id of the unrecognized cub.
+* *animals\_code_mother*: Animal code of the mother of the cub.
 * *year*: Year when the cub was seen with her mother.
 * *cub_id*: Id of the cub in case more than one cub is seen with a mother in a year.
 
