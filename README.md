@@ -329,7 +329,7 @@ If you need technical support, please contact the project or the database manage
 All these tools are open source, standard compliant, efective and well documented. It is also possible to access the data using proprietary software like ArcGIS, Office, SAS. In this case, interested users can look for tutorial on how connect these tools to the database.
 
 ### phppgAdmin
-The data in the database can be accessed, explored, queried and downloaded (as csv) using a web based tool available at [http://eurodeer2.fmach.it/phppgadmin/](http://eurodeer2.fmach.it/phppgadmin/). There is no need to install any software on the local computer. The interface is very intuitive and similar to PgAdmin, with a structure pretty similar to a file system exporer. This is the recommended interface for basic users. It is not possible to visualize spatial data. For an example, see the figure below.
+The data in the database can be accessed, explored, queried and downloaded (as csv) using a web based tool available at [http://eurodeer2.fmach.it/phppgadmin/](http://eurodeer2.fmach.it/phppgadmin/). There is no need to install any software on the local computer. The interface is very intuitive and similar to PgAdmin, with a structure pretty similar to a file system explorer. This is the recommended interface for basic users. It is not possible to visualize spatial data. For an example, see the figure below.
 
 ![](https://github.com/feurbano/bear_data/blob/master/phppgadmin.png)
 
@@ -360,7 +360,7 @@ You can easily import data from the database into [R](https://www.r-project.org/
   
 In the *dbSendQuery* command, you can include any SQL code.
 
-Note that in the database is activated [Pl/R](http://www.joeconway.com/plr.html), a tool that permits to embed R code into SQL. In addition, there are other R packages that facilitate the acquiition of spatial data.
+Note that in the database is activated [Pl/R](http://www.joeconway.com/plr.html), a tool that permits to embed R code into SQL. 
 
 ### LibreOffice
 Base and Calc are two tools of the suite [LibreOffice](https://www.libreoffice.org/) that allow the connection with the database and offer the possibility to create queries with graphical tools, build masks, edit the data in a user-friendly environment and visualize the information as spreadsheet.
