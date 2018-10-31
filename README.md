@@ -61,10 +61,15 @@ The schemas in the bear_db at the moment are:
 * **data_trentino**: This schema is used to store the original data provided by Trentino (Italy) and is accessible by users from this research group only.
 * **public**: Standard public schema used by the system. No information on bears is stored here.
 
-Here below, the figure represents the complete structure of the database objects (tables). All tables with suffix *lu_* are use to store the set of valid values for specific fields. In the picture, the tables are reported with the list of their columns, the primary and external keys and the links between tables (click on it to enlarge the picture).
+Here below, the figures represent the complete structure of the database objects (tables). All tables with suffix *lu_* are used to store the set of valid values for specific fields. In the picture, the tables are reported with the list of their columns, the primary and external keys and the links between tables (click on it to enlarge the picture). There are two different representations, the second one does not include ancillary tables and is updated to 31/10/2018.
 <p align="center">
   <img src="https://github.com/feurbano/bear_data/blob/master/beardb_complete.png" Height="350"/>	
 </p>
+
+<p align="center">
+  <img src="https://github.com/feurbano/bear_data/blob/master/beardb_schema2.png" Height="350"/>	
+</p>
+
 In the images below, two simplified version of the tables structure are illustrated. The first one with all the tables.
 <p align="center">
   <img src="https://github.com/feurbano/bear_data/blob/master/beardb_schema.png" Height="300"/>	
