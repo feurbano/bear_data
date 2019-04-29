@@ -33,7 +33,7 @@ The database can be accessed using the following parameters:
 	  Password: ...
 
 
-If you don't have a user account (and you are entitle to have you) please contact Francesca Cagnacci or Luca Pedrotti or Ferdinando Urbano.
+If you don't have a user account (and you are entitle to have you) please contact Francesca Cagnacci or Luca Pedrotti.
 
 Each client software has a different interface to PostgreSQL/PostGIS. For some examples see section [Client tools](#clienttools).
 
@@ -62,9 +62,9 @@ The schemas in the bear_db at the moment are:
 ### <a name="schemamain"></a> SCHEMA MAIN.VIEWS
 
 #### VIEWS
-A view is the result set of a stored query on the data, which the database users can query just as they would in a persistent database collection object. This pre-established query command is kept in the database dictionary. Unlike ordinary base tables in a relational database, a view does not form part of the physical schema: as a result set, it is a virtual table computed or collated dynamically from data in the database when access to that view is requested. Changes applied to the data in a relevant underlying table are reflected in the data shown in subsequent invocations of the view.  
+A view is the result set of a stored query on the data, which the database users can query just as they would in a persistent database collection object. This pre-established query command is kept in the database dictionary. Unlike ordinary base tables in a relational database, a view does not form part of the physical schema: as a result set, it is a virtual table computed or collated dynamically from data in the database when access to that view is requested. Changes applied to the data in a relevant underlying table are reflected in the data shown in subsequent invocations of the view. 
 
-The users can thus access the following data through **views** in the schema **main**:
+Based on established agreements, different users have access to different Views. Based on access privileges, users can access the following data through **views** in the schema **main**:
 
 1. [view_shared_animals](#view_shared_animals)
 2. [view_shared_animals_genotypes](#view_shared_animals_genotypes)
